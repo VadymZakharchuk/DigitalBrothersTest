@@ -9,6 +9,11 @@ def get_catalan_value(number_pairs):
     :param number_pairs::= quantity of pairs
     :return::= Catalan's number
     """
+    if type(number_pairs) is not int:
+        raise TypeError('Number of pairs should be real number only')
+
+    if number_pairs < 0:
+        raise ValueError('Number of pairs can`t be negative')
 
     if number_pairs >= 2:
         return int(((2 * ((2 * number_pairs) - 1)) / (number_pairs + 1)) *
@@ -17,14 +22,6 @@ def get_catalan_value(number_pairs):
 
 
 init_value = input('Enter, please, a number of quantity of parentheses > ')
-# checking - is entered value is a number
-if init_value.isdigit():
-    if int(init_value) > 0:
-        # calculating of correct expressions for n parentheses
-        result = get_catalan_value(int(init_value))
-        print('Quantity of correct expressions  is > ' + str(result))
-    else:
-        # default value in case of n = 0
-        print('Quantity of correct expressions  is > 1')
-else:
-    print('Please, enter a valid value')
+# calculating of correct expressions for n parentheses
+result = get_catalan_value(int(init_value))
+print('Quantity of correct expressions  is = ' + str(result))
