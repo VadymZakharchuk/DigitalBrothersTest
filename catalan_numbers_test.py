@@ -14,7 +14,5 @@ class TestCatalanNumbers(unittest.TestCase):
         self.assertRaises(ValueError, get_catalan_value, -2)
         self.assertRaises(ValueError, get_catalan_value, -3)
 
-    def test_value_type(self):
-        self.assertRaises(TypeError, get_catalan_value, 'test')
-        self.assertRaises(TypeError, get_catalan_value, [1, 2, 3])
-        self.assertRaises(TypeError, get_catalan_value, True)
+    if __name__ == '__main__':
+        unittest.main()
